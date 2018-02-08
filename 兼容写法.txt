@@ -1,0 +1,53 @@
+兼容写法
+
+首先是定义容器的 display 属性：
+
+.box{
+display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+display: -moz-box; /* 老版本语法: Firefox (buggy) */
+display: -ms-flexbox; /* 混合版本语法: IE 10 */
+display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+由于旧版语法并没有列入W3C标准，所以这里不用写 display:box ，下面的语法也是一样的。
+
+这里还要注意的是，如果子元素是行内元素，在很多情况下都要使用 display:block 或 display:inline-block 把行内子元素变成块元素（例如使用 box-flex 属性），这也是旧版语法和新版语法的区别之一。
+
+子元素主轴对齐方式
+
+.box{
+-webkit-box-pack: center;
+-moz-justify-content: center;
+-webkit-justify-content: center;
+justify-content: center;
+}
+
+子元素交叉轴对齐方式
+
+.box{
+-webkit-box-align: center;
+-moz-align-items: center;
+-webkit-align-items: center;
+align-items: center;
+}
+
+左到右
+
+.box{
+-webkit-box-direction: normal;
+-webkit-box-orient: horizontal;
+-moz-flex-direction: row;
+-webkit-flex-direction: row;
+flex-direction: row;
+}
+
+右到左
+
+.box{
+-webkit-box-pack: end;
+-webkit-box-direction: reverse;
+-webkit-box-orient: horizontal;
+-moz-flex-direction: row-reverse;
+-webkit-flex-direction: row-reverse;
+flex-direction: row-reverse;
+}
